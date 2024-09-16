@@ -4,6 +4,8 @@ Rails.application.routes.draw do
       get 'process_files' => 'online_files#process_files'
       get 'download_files' => 'online_files#download_files'
     end
+
+    post 'confirm' => 'online_files#confirm'
   end
 
   resources :transactions, only: [:index] do

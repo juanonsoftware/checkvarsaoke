@@ -45,6 +45,13 @@ class OnlineFilesController < ApplicationController
     end
   end
 
+  def confirm
+    file = OnlineFile.find(params[:online_file_id])
+    file.status = :confirmed
+    file.save!
+    render json: file
+  end
+
   private
 
   def create_service(online_file)
