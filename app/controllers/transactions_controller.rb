@@ -11,10 +11,16 @@ class TransactionsController < ApplicationController
   end
 
   def stats
-    transactions_ok = Transaction.where(status: :ok).count
-    transactions_nok = Transaction.where(status: :nok).count
+    transactions = Transaction.group(:status).count
+    transactions_ok = transactions[:ok] || 0
+    transactions_nok = transactions[:nok] || 0
+    total_amount = Transaction.where(status: :ok).sum(:amount)
 
-    render json: { transactions_ok: transactions_ok, transactions_nok: transactions_nok }
+    render json: { 
+      transactions_ok: transactions_ok,
+      transactions_nok: transactions_nok,
+      total_amount: total_amount
+     }
   end
 
   private
