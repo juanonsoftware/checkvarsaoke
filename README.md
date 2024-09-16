@@ -1,5 +1,5 @@
 ## This is backend for a check_var_sao_ke application written in Ruby on Rails
-The purpose is for studying with points of interest as below
+The purpose is for **studying** with points of interest as below
 
 - Download an online file via http
 - Use a gem to process PDF file (extract to text)
