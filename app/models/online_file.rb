@@ -1,0 +1,2 @@
+class OnlineFile < ApplicationRecord
+end
